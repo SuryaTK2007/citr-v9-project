@@ -1,7 +1,7 @@
-const Pizza = () =>{
+const Pizza = (props) =>{
     return React.createElement("div", {}, [
-        React.createElement("h1", {}, "The Pizza"),
-        React.createElement("p", {}, "Cheese. peppperoni"),
+        React.createElement("h1", {}, props.name),
+        React.createElement("p", {}, props.description),
     ]);
 };
 
@@ -10,11 +10,19 @@ const App = () =>{
         "div",
         {},[
         React.createElement("h1", {}, "Padre Gino's!"),
-        React.createElement(Pizza),
-        React.createElement(Pizza),
-        React.createElement(Pizza),
-        ]
-    )
+        React.createElement(Pizza,{
+            name:"Pepperoni pizza",
+            description:"Mozzarella Cheese, Pepperoni"
+        }),
+        React.createElement(Pizza, {
+            name: "The Hawaiian Pizza",
+            description: "Sliced Ham, Pineapple, Mozzarella Cheese",
+        }),
+        React.createElement(Pizza, {
+            name: "The Big Meat Pizza",
+            description: "Bacon, Pepperoni, Italian Sausage, Chorizo Sausage",
+        }),
+    ])
 }
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
